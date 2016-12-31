@@ -38,13 +38,11 @@ head(total_steps_by_day)
 This gives us the total steps by day. We can plot it to better understand the data.
 
 ```{r plot total steps by day, echo = TRUE}
-with(total_steps_by_day, plot(y = steps, 
-                              x = date,
-                              type = "h",
-                              main = "Total Steps Taken per Day", 
+with(total_steps_by_day, hist(steps,
+                              main = "Histogram of the Total Steps Taken per Day", 
                               col = "red", 
-                              xlab = "Day",
-                              ylab = "Total Steps Taken"))
+                              xlab = "Total Steps Taken per Day",
+                              ylab = "Number of Observations"))
 ```
 
 Finally, to calculate the mean (and median) we can simply call its function on the total steps by day data.
@@ -127,13 +125,11 @@ head(total_steps_by_day)
 ```
 
 ```{r plot total steps by day with imputted data, echo = TRUE}
-with(total_steps_by_day, plot(y = steps, 
-                              x = date,
-                              type = "h",
-                              main = "Total Steps Taken per Day with Imputted Data", 
+with(total_steps_by_day, hist(steps,
+                              main = "Histogram of the Total Steps Taken per Day with Imputted Data", 
                               col = "red", 
-                              xlab = "Day",
-                              ylab = "Total Steps Taken"))
+                              xlab = "Total Steps Taken per Day",
+                              ylab = "Number of Observations"))
 ```
 
 ```{r mean and median with imputted data, echo = TRUE}

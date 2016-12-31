@@ -77,13 +77,11 @@ This gives us the total steps by day. We can plot it to better understand the da
 
 
 ```r
-with(total_steps_by_day, plot(y = steps, 
-                              x = date,
-                              type = "h",
-                              main = "Total Steps Taken per Day", 
+with(total_steps_by_day, hist(steps,
+                              main = "Histogram of the Total Steps Taken per Day", 
                               col = "red", 
-                              xlab = "Day",
-                              ylab = "Total Steps Taken"))
+                              xlab = "Total Steps Taken per Day",
+                              ylab = "Number of Observations"))
 ```
 
 ![](PA1_template_files/figure-html/plot total steps by day-1.png)<!-- -->
@@ -213,13 +211,11 @@ head(total_steps_by_day)
 
 
 ```r
-with(total_steps_by_day, plot(y = steps, 
-                              x = date,
-                              type = "h",
-                              main = "Total Steps Taken per Day with Imputted Data", 
+with(total_steps_by_day, hist(steps,
+                              main = "Histogram of the Total Steps Taken per Day with Imputted Data", 
                               col = "red", 
-                              xlab = "Day",
-                              ylab = "Total Steps Taken"))
+                              xlab = "Total Steps Taken per Day",
+                              ylab = "Number of Observations"))
 ```
 
 ![](PA1_template_files/figure-html/plot total steps by day with imputted data-1.png)<!-- -->
