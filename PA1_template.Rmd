@@ -9,7 +9,7 @@ output:
 
 First, we have to load required libraries. I find the *dplyr* library handy and use it on this project. To do the panels in the last plot, I will use the *lattice* library.
 
-```{r libraries, results="hide", echo = TRUE}
+```{r libraries, results = "hide", echo = TRUE}
 library(dplyr)
 library(lattice)
 ```
@@ -100,7 +100,7 @@ As we can see, we have *2304* records with *NA* values.
 
 Next, we imput the missing data by interval, iterating over the mean steps by interval which we have calculated previously. The missing values are replaced with the respective average 5-minute interval.
 
-```{r imputting data}
+```{r imputting data, echo = TRUE}
 dataset <- original_dataset
 mean_steps_by_interval <- aggregate(steps ~ interval, data = dataset, FUN=mean)
 intervals <- dim(mean_steps_by_interval)[1]
@@ -147,14 +147,14 @@ As we can see, there was no impact on the mean, however the median now is *10766
 
 First, we have to create the column *level* and classify it as weekdays or weekends. We can do it really simply using dplyr's *mutate* function with the *ifelse* function.
 
-```{r level column}
+```{r level column, echo = TRUE}
 weekend <- c("sábado", "domingo")
 dataset <- dataset %>% mutate(level = ifelse(weekdays(date) %in% weekend, "weekend", "weekday"))
 ```
 
 Now that we have classified the observations in two different levels, we can plot with two panels, one for each level. This can be easily done with the *lattice* plot system.
 
-```{r level panels}
+```{r level panels, echo = TRUE}
 with(dataset, xyplot(steps ~ interval | level,
                      xlab = "Interval",
                      ylab = "Number of steps",
